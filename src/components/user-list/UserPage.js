@@ -18,13 +18,14 @@ const UserPage = (props) => {
         <Link to="add-user">
           <FlatButton backgroundColor="#66CDAA" hoverColor="#3CB371" label="Add new user" />
         </Link>
-        <Link to="/add">
+        <Link to="/">
           <FlatButton className="box-layout__button1" label="Dashboard" />
         </Link>
       </Card>
         {// Wyświetla listę transakcji
           props.user.length !== 0 && props.user.map((user) => {
-            return <UserList key={user.transactionID}{...user} />
+            console.log(user)
+            return <UserList key={user.userID}{...user} />
         })}
       </div>
     </MuiThemeProvider>

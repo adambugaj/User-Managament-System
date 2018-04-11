@@ -12,7 +12,7 @@ export class AddUser extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      userName: '',
+      userName: props.user ? props.user.userName : '',
       userPassword: '',
       userFirstName: '',
       userLastName: '',
@@ -66,6 +66,7 @@ export class AddUser extends React.Component {
               floatingLabelText="Username"
               className="input-group"
               type="text"
+              value={this.state.userName}
               onChange={this.onUsername}
               className="input-group__item"
           />
@@ -113,10 +114,5 @@ export class AddUser extends React.Component {
   }
 };
 
-const mapStateToProps = (state, props) => {
-  console.log(state);
-  return {
-    user: state.user
-  }
-};
-export default connect(mapStateToProps)(AddUser);
+// React components doesn't need to have connect
+export default AddUser;

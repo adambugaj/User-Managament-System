@@ -9,7 +9,7 @@ const addUser = ({
 ) => ({
   type: "ADD_USER",
   user: {
-    userID: `${Math.floor(Math.random() * 10000)}.${Math.floor(Math.random() * 10000)}`,
+    userID: `${Math.floor(Math.random() * 10000)}-${Math.floor(Math.random() * 10000)}`,
     userName,
     userPassword,
     userFirstName,
@@ -24,9 +24,10 @@ const removeUser = ({ userID } = {}) => ({
   userID
 });
 
-const editTransaction = (updates) => {
+const editUser = (userID, updates) => {
   return {
-    type: 'EDIT_TRANSACTION',
+    type: 'EDIT_USER',
+    userID,
     updates
   }
 };
@@ -38,4 +39,4 @@ const filterTransaction = (transactionSum) => {
   }
 };
 
-export { addUser, removeUser, editTransaction };
+export { addUser, removeUser, editUser };

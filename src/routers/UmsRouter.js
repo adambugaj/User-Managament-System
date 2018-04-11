@@ -5,6 +5,7 @@ import { MainPage } from '.././components/MainPage';
 import UserPage from '.././components/user-list/UserPage';
 import AcceptUser from '.././components/user-list/AcceptUserForm';
 import AddUserPage from '.././components/user-list/AddUserPage';
+import EditUser from '.././components/user-list/EditUser'
 
 
 const UmsRouter = () => {
@@ -16,7 +17,7 @@ const UmsRouter = () => {
           <Route path="/" component={MainPage} exact={true} />
           <Route path="/user-list" component={UserPage} />
           <Route path="/add-user" component={AcceptUser} />
-          <Route path="/add" component={AddUserPage} />
+          <Route path="/edit/user/:id" component={EditUser} />
         </Switch>
       </div>
     </BrowserRouter>

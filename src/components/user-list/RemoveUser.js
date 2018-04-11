@@ -9,7 +9,7 @@ const RemoveUser = (props) => {
   return (
     <div>
           <MuiThemeProvider>
-          <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" label="Remove" secondary={true} label="Remove" onClick={ (trans) => {
+          <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" secondary={true} label="Remove" onClick={ (trans) => {
             props.dispatch(removeUser({userID: props.user.userID}));
             }}
           />

@@ -13,14 +13,17 @@ const userReducer = (state = userReducerDefault, action) => {
       return state.filter(({ userID }) => {
         return userID !== action.userID;
       });
-    case 'EDIT_TRANSACTION':
+    case 'EDIT_USER':
     console.log(action, state)
-      return state.map((trans) => {
-        console.log(trans, action.updates)
-        return {
-          ...trans,
-          transactionSum: action.updates,
-          transactionHigh: trans.transactionEuro * action.updates
+      return state.map((user) => {
+        console.log(user, action.updates)
+        if(user.userID === action.userID) {
+          return {
+            ...user,
+            ...action.updates
+          }
+        } else {
+          return user;
         }
       });
     default:

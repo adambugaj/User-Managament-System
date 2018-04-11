@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import RemoveUser from './RemoveUser';
+import EditUser from './EditUser';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
 import { Card, CardHeader, CardText, CardActions, CardTitle } from 'material-ui/Card';
@@ -20,7 +22,9 @@ const UserList = (props) => {
             </div>
           </CardText>
           <CardActions>
-            <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" label="Edit" />
+            <Link to={`/edit/user/${props.userID}`}>
+              <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" label="Edit" />
+            </Link>
             <RemoveUser user={props} />
           </CardActions>
         </Card>
