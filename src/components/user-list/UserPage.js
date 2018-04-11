@@ -1,11 +1,16 @@
 import React from 'react';
-import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import UserList from './UserList';
+import AcceptUserForm from './AcceptUserForm'
+// Material-ui
+import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 
 
-export const UserPage = () => {
+const UserPage = (props) => {
+  console.log(props);
   return (
     <MuiThemeProvider>
       <div className="content-conatainer">
@@ -13,20 +18,23 @@ export const UserPage = () => {
         <Link to="add-user">
           <FlatButton backgroundColor="#66CDAA" hoverColor="#3CB371" label="Add new user" />
         </Link>
-        <Link to="/">
+        <Link to="/add">
           <FlatButton className="box-layout__button1" label="Dashboard" />
         </Link>
-        </Card>
-        <Card className="content-conatainer_component">
-          <CardHeader
-            title="Users section"
-          />
-          <CardActions >
-            <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" label="Edit" />
-            <FlatButton className="box-layout__button box-layout__button1" backgroundColor="#F5F5F5" type="button" label="Remove" secondary={true}/>
-          </CardActions>
-        </Card>
+      </Card>
+        {// Wyświetla listę transakcji
+          props.user.length !== 0 && props.user.map((user) => {
+            return <UserList key={user.transactionID}{...user} />
+        })}
       </div>
     </MuiThemeProvider>
   );
 };
+
+const mapStateToProps = (state, props) => {
+  console.log(state);
+  return {
+    user: state.user
+  };
+}
+export default connect(mapStateToProps)(UserPage);

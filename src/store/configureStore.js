@@ -1,12 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import transactionReducer from '../reducers/transactions';
+import userReducer from '../reducers/userReducer';
 
-// Store to inaczej core aplikacji, przez który przesyłane są dane do wszystkich komponentów
+// Store is a core of this app that allows to send data to all components
 export default () => {
   const store = createStore(
     combineReducers({
-      transaction: transactionReducer
+      user: userReducer
     }),
     applyMiddleware(thunk)
   );

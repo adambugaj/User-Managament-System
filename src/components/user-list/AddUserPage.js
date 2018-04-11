@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import addUser from '../../actions/userGenerator';
 // Material design components
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
@@ -8,43 +9,48 @@ import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
 export class AddUser extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       transactionName: '',
-//       transactionEuro: 0,
-//       transactionSum: 0,
-//       transactionHigh: 0
-//     }
-//   }
-//
-//   onChangeZloty = (e) => {
-//     const zloty = e.target.value;
-//     this.props.dispatch(editTransaction( zloty ));
-//     this.setState(() => ({ transactionSum: zloty }));
-//   };
-//
-//   onChangeName = (e) => {
-//     const name = e.target.value;
-//       this.setState(() => ({ transactionName: name }));
-//   };
-//
+  constructor(props) {
+    super(props);
+    this.state = {
+      userName: '',
+      userPassword: '',
+      userFirstName: '',
+      userLastName: '',
+      userDateBirth: 0,
+      userGroup: ''
+    }
+  }
+
+// Add Username to the object state
+  onUsername = (e) => {
+    const name = e.target.value;
+      this.setState(() => ({ userName: name }));
+  };
+
+  onUserPassword = (e) => {
+    const name = e.target.value;
+      this.setState(() => ({ userPassword: name }));
+  };
+
+
 //   onChangeEuro = (e) => {
 //     const euro = e.target.value;
 //     this.setState(() => ({ transactionEuro: euro }));
 //   };
-//
-// // Po zatwierdzeniu przyciskiem submit wysyłamy dane do obiektu
-//   onSubmit = (e) => {
-//       e.preventDefault();
-//       console.log(this.props)
-//       this.props.onSubmit({
-//         transactionName: this.state.transactionName,
-//         transactionEuro: this.state.transactionEuro,
-//         transactionSum: this.state.transactionSum,
-//         transactionHigh: (this.state.transactionSum * this.state.transactionEuro).toFixed(2)
-//       });
-//     };
+
+// Po zatwierdzeniu przyciskiem submit wysyłamy dane do obiektu
+  onSubmit = (e) => {
+      e.preventDefault();
+      console.log(this.props)
+      this.props.onSubmit({
+        userName: this.state.userName,
+        userPassword: this.state.userPassword,
+        userFirstName: this.state.userFirstName,
+        userLastName: this.state.userLastName,
+        userDateBirth: this.state.userDateBirth,
+        userGroup: this.state.userGroup
+      });
+    };
 
 // Interfejs aplikacji oraz komponenty material-ui
   render() {
@@ -60,13 +66,13 @@ export class AddUser extends React.Component {
               floatingLabelText="Username"
               className="input-group"
               type="text"
-              onChange={this.onChangeZloty}
+              onChange={this.onUsername}
               className="input-group__item"
           />
             <TextField
                 floatingLabelText="Password"
                 type="text"
-                onChange={this.onChangeName}
+                onChange={this.onUserPassword}
                 className="input-group__item"
             />
             <TextField
@@ -96,7 +102,7 @@ export class AddUser extends React.Component {
             <CardActions>
               <FlatButton type="submit" label="Submit" />
               <Link to="user-list">
-                <FlatButton type="submit" label="Cancel" secondary={true}/>
+                <FlatButton type="submit" label="Cancel" secondary={true}   onSubmit={this.onSubmit}/>
               </Link>
             </CardActions>
           </Card>
@@ -107,9 +113,10 @@ export class AddUser extends React.Component {
   }
 };
 
-// const mapStateToProps = (state) => {
-//   return {
-//     transaction: state.transaction
-//   };
-// };
-//
+const mapStateToProps = (state, props) => {
+  console.log(state);
+  return {
+    user: state.user
+  }
+};
+export default connect(mapStateToProps)(AddUser);
