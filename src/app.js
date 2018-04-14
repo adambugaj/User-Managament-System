@@ -5,6 +5,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import UmsRouter from './routers/UmsRouter';
 import configureStore from './store/configureStore';
+import firebase from './firebase/firebase';
 
 const store = configureStore()
 

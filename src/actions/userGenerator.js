@@ -3,8 +3,7 @@ const addUser = ({
   userPassword = '',
   userFirstName = '',
   userLastName = '',
-  userDateBirth = 0,
-  userGroup = ''
+  userDateBirth = 0
 } = {}
 ) => ({
   type: "ADD_USER",
@@ -14,8 +13,7 @@ const addUser = ({
     userPassword,
     userFirstName,
     userLastName,
-    userDateBirth,
-    userGroup
+    userDateBirth
   }
 });
 
@@ -29,14 +27,14 @@ const editUser = (userID, updates) => {
     type: 'EDIT_USER',
     userID,
     updates
-  }
+  };
 };
 
 const filterTransaction = (transactionSum) => {
   return {
     type: 'FILTER_TRANSACTION',
     transactionSum
-  }
+  };
 };
 
 export { addUser, removeUser, editUser };

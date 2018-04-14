@@ -9,12 +9,12 @@ const EditUser = (props) => {
   console.log(props);
   return (
     <div>
-          <p>Changing {props.user.userName} user</p>
+          
           <AddUser
             user={props.user}
             onSubmit={(user) => {
-              props.dispatch(editUser(props.user.userID, user))
-              props.history.push('/user-list')
+              props.dispatch(editUser(props.user.userID, user));
+              props.history.push('/user-list');
             }}
           />
     </div>

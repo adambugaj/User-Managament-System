@@ -12,24 +12,22 @@
 
   @media (min-width: $desktop-breakpoint) {
     margin: 0 auto;
+    margin-bottom: 20px;
     max-width: 80rem;
     display: flex;
     flex-direction: row;
     align-items: baseline;
-
   }
 }
 
 .content-conatainer_component {
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   padding: 0 $m-size;
   max-width: 35rem;
-      width: 60rem;
+  width: 60rem;
 
   @media (min-width: $desktop-breakpoint) {
-    float:right;
-    left: 4%;
-    clear:both;
+    margin-bottom: -10px;
   }
 }

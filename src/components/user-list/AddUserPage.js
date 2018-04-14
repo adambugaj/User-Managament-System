@@ -47,8 +47,7 @@ export class AddUser extends React.Component {
         userPassword: this.state.userPassword,
         userFirstName: this.state.userFirstName,
         userLastName: this.state.userLastName,
-        userDateBirth: this.state.userDateBirth,
-        userGroup: this.state.userGroup
+        userDateBirth: this.state.userDateBirth
       });
     };
 
@@ -94,16 +93,10 @@ export class AddUser extends React.Component {
                 onChange={this.onChangeEuro}
                 className="input-group__item"
             />
-            <TextField
-                floatingLabelText="Choose a group"
-                type="text"
-                onChange={this.onChangeEuro}
-                className="input-group__item"
-            />
             <CardActions>
-              <FlatButton type="submit" label="Submit" />
+              <FlatButton onSubmit={this.onSubmit} type="submit" label="Submit" />
               <Link to="user-list">
-                <FlatButton type="submit" label="Cancel" secondary={true}   onSubmit={this.onSubmit}/>
+                <FlatButton type="button" label="Cancel" secondary={true} />
               </Link>
             </CardActions>
           </Card>
