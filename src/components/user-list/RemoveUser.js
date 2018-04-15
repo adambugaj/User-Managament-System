@@ -10,7 +10,9 @@ const RemoveUser = (props) => {
   return (
     <div>
           <MuiThemeProvider>
-          <FlatButton className="box-layout__button " backgroundColor="#F5F5F5" type="button" secondary={true} label="Remove" 
+          <FlatButton className="box-layout__button" backgroundColor="#F5F5F5" type="button" secondary={true} label="Remove" onClick={() => {
+            props.dispatch(removeUserFirebase(props.user.id))
+          }}
           />
         </MuiThemeProvider>
     </div>
@@ -21,11 +23,10 @@ const mapStateToProps = (state, props) => {
   // Zwróc odpowiednie ID transakcji, która chcemy usunąc
   console.log(state, props);
   return {
-    // user: state.user.find((user) => {
-    //   console.log(user, props);
-    //   return user.id === props.user.userID;
-    // })
-    user: state
+    user: state.user.find((user) => {
+      console.log(user, props);
+      return user.id === props.user.id;
+    })
   };
 }
 export default connect(mapStateToProps)(RemoveUser);

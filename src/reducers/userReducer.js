@@ -4,20 +4,32 @@ const userReducerDefault = [];
 const userReducer = (state = userReducerDefault, action) => {
   switch (action.type) {
     case 'ADD_USER':
-    console.log(state, action)
       return [
         ...state,
-        action.user
+        action.userData
       ];
+    case 'ADD_GROUP_TO_USER':
+      console.log(state, action);
+      return state.map((user) => {
+        console.log(user.id === action.userData.id)
+        if(user.id === action.userData.id) {
+          console.log(action.groupName)
+          return {
+            ...user,
+            userGroup: action.groupName
+          };
+        } else {
+          return user;
+        }
+      });
     case 'REMOVE_USER':
-      return state.filter(({ userID }) => {
-        return userID !== action.userID;
+      return state.filter((user) => {
+        return user.id !== action.id;
       });
     case 'EDIT_USER':
     console.log(action, state)
       return state.map((user) => {
-        console.log(user, action.updates)
-        if(user.userID === action.userID) {
+        if(user.ID === action.ID) {
           return {
             ...user,
             ...action.updates
@@ -27,7 +39,6 @@ const userReducer = (state = userReducerDefault, action) => {
         }
       });
       case 'SET_USER':
-        console.log(action)
         return action.userData;
     default:
       return state;
