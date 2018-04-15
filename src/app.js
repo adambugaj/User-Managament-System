@@ -6,6 +6,7 @@ import './styles/styles.scss';
 import UmsRouter from './routers/UmsRouter';
 import configureStore from './store/configureStore';
 import firebase from './firebase/firebase';
+import { fetchSetUser } from './actions/userGenerator';
 
 const store = configureStore()
 
@@ -17,4 +18,8 @@ const jsx = (
 );
 
 // Run app ID from HTML code
-ReactDOM.render(jsx, document.getElementById('app'));
+ReactDOM.render(<h3>Loading...</h3>, document.getElementById('app'));
+
+store.dispatch(fetchSetUser()).then(() => {
+  ReactDOM.render(jsx, document.getElementById('app'));
+})

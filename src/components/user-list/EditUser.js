@@ -4,12 +4,12 @@ import { removeUser, editUser } from '../../actions/userGenerator';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 import AddUser from './AddUserPage';
+import RemoveUser from './RemoveUser';
 
 const EditUser = (props) => {
   console.log(props);
   return (
     <div>
-          
           <AddUser
             user={props.user}
             onSubmit={(user) => {

@@ -10,6 +10,7 @@ export default () => {
       user: userReducer,
       group: groupReducer
     }),
+    // support for dispatch when storing data to firebase
     applyMiddleware(thunk)
   );
   return store;

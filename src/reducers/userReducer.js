@@ -26,6 +26,9 @@ const userReducer = (state = userReducerDefault, action) => {
           return user;
         }
       });
+      case 'SET_USER':
+        console.log(action)
+        return action.userData;
     default:
       return state;
   }

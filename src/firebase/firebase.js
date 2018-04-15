@@ -12,6 +12,17 @@ const config = {
 
 firebase.initializeApp(config);
 
-firebase.database().ref().set({
-  name: 'Adam Bugaj'
-});
+const database = firebase.database();
+
+
+export { firebase, database as default };
+
+// Testing database
+// firebase.database().ref().set({
+//   name: 'Peter',
+//   location: {
+//     city: 'Cracow'
+//   }
+// }).then(() => {
+//   console.log('data is saved');
+// });

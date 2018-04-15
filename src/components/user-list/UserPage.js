@@ -24,8 +24,7 @@ const UserPage = (props) => {
         </Card>
         {// Wyświetla listę transakcji
           props.user.length !== 0 && props.user.map((user) => {
-            console.log(user)
-            return <UserList key={user.userID}{...user} />
+            return <UserList key={Math.random()}{...user} />
         })}
       </div>
     </MuiThemeProvider>

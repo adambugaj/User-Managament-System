@@ -16,8 +16,7 @@ export class AddUser extends React.Component {
       userPassword: '',
       userFirstName: '',
       userLastName: '',
-      userDateBirth: 0,
-      userGroup: ''
+      userDateBirth: '',
     }
   }
 
