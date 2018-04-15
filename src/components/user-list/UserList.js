@@ -20,7 +20,7 @@ const UserList = (props) => {
           <CardText >
             <div>
               <p>Username: <strong>{props.userName}</strong></p>
-              <p>Password: <strong>{props.userPassword}</strong></p>
+              <p>Password: <strong>Hidden</strong></p>
               <p>First Name: <strong>{props.userFirstName}</strong></p>
               <p>Last Name: <strong>{props.userLastName}</strong></p>
               <p>Date of Birth: <strong>{props.userDateBirth}</strong></p>

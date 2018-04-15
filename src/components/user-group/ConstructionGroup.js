@@ -19,7 +19,7 @@ const ConstructionGroup = (props) => {
               {// Wyświetla listę użytkowników
                 props.group.length !== 0 && props.userList.map((user) => {
                   return (
-                    <p key={Math.random()}>Username: {user.userName} password: {user.userPassword}</p>
+                    <p key={Math.random()}>Username: {user.userName} First Name: {user.userFirstName} Last Name: {user.userLastName}</p>
                   );
                 })}
             </div>
