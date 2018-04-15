@@ -21,6 +21,9 @@ const UserList = (props) => {
             <div>
               <p>Username: <strong>{props.userName}</strong></p>
               <p>Password: <strong>{props.userPassword}</strong></p>
+              <p>First Name: <strong>{props.userFirstName}</strong></p>
+              <p>Last Name: <strong>{props.userLastName}</strong></p>
+              <p>Date of Birth: <strong>{props.userDateBirth}</strong></p>
               <p>User Group: <strong>{props.userGroup}</strong></p>
             </div>
           </CardText>

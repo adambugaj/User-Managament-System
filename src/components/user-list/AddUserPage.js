@@ -13,24 +13,38 @@ export class AddUser extends React.Component {
     super(props);
     this.state = {
       userName: props.user ? props.user.userName : '',
-      userPassword: '',
-      userFirstName: '',
-      userLastName: '',
-      userDateBirth: '',
+      userPassword: props.user ? props.user.userPassword : '',
+      userFirstName: props.user ? props.user.userFirstName : '',
+      userLastName: props.user ? props.user.userLastName : '',
+      userDateBirth: props.user ? props.user.userDateBirth : ''
     }
   }
 
 // Add Username to the object state
   onUsername = (e) => {
-    const name = e.target.value;
-      this.setState(() => ({ userName: name }));
+    const value = e.target.value;
+      this.setState(() => ({ userName: value }));
   };
 
   onUserPassword = (e) => {
-    const name = e.target.value;
-      this.setState(() => ({ userPassword: name }));
+    const value = e.target.value;
+      this.setState(() => ({ userPassword: value }));
   };
 
+  onUserFirstName = (e) => {
+    const value = e.target.value;
+      this.setState(() => ({ userFirstName: value }));
+  };
+
+  onUserLastName = (e) => {
+    const value = e.target.value;
+      this.setState(() => ({ userLastName: value }));
+  };
+
+  onUserDateBirth = (e) => {
+    const value = e.target.value;
+      this.setState(() => ({ userDateBirth: value }));
+  };
 
 //   onChangeEuro = (e) => {
 //     const euro = e.target.value;
@@ -71,25 +85,29 @@ export class AddUser extends React.Component {
             <TextField
                 floatingLabelText="Password"
                 type="text"
+                value={this.state.userPassword}
                 onChange={this.onUserPassword}
                 className="input-group__item"
             />
             <TextField
                 floatingLabelText="First Name"
                 type="text"
-                onChange={this.onChangeEuro}
+                value={this.state.userFirstName}
+                onChange={this.onUserFirstName}
                 className="input-group__item"
             />
             <TextField
                 floatingLabelText="LastName"
                 type="text"
-                onChange={this.onChangeEuro}
+                value={this.state.userLastName}
+                onChange={this.onUserLastName}
                 className="input-group__item"
             />
             <TextField
                 floatingLabelText="Date of Birth - MM/DD/YEAR"
                 type="text"
-                onChange={this.onChangeEuro}
+                value={this.state.userDateBirth}
+                onChange={this.onUserDateBirth}
                 className="input-group__item"
             />
             <CardActions>
