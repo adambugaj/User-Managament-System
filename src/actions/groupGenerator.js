@@ -1,8 +1,8 @@
+// Adding a new group to the list
 const addGroup = ({
   groupName = ''
 } = {}
 ) => {
-  console.log(groupName)
   return {
     type: "ADD_GROUP",
     group: {
@@ -12,8 +12,8 @@ const addGroup = ({
   };
 }
 
+//Adding the data of a user to a specified group and save it
 const addUserToGroup = (groupName, userData) => {
-  console.log(groupName);
   return {
     type: 'ADD_USER_TO_GROUP',
     groupName,
@@ -21,6 +21,7 @@ const addUserToGroup = (groupName, userData) => {
   }
 }
 
+// Removing a clicked group
 const removeGroup = (groupName) => {
   return {
     type: 'REMOVE_GROUP',

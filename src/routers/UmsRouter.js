@@ -9,6 +9,7 @@ import EditUser from '.././components/user-list/EditUser';
 import GroupPage from '.././components/user-group/GroupPage';
 import ListUserGroup from '.././components/user-group/ListUserGroup';
 
+// Router creates the link for the choosen components
 const UmsRouter = () => {
   return (
     <BrowserRouter>

@@ -11,18 +11,15 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 const GroupPage = (props) => {
-  console.log(props);
   return (
     <div className="content-conatainer">
       <AddGroupPage
         onSubmit={(group) => {
-          console.log(group)
           props.dispatch(addGroup(group))
         }}
       />
-      {// Wyświetla listę grup
+      {// Shows the list of groups
         props.group.length !== 0 && props.group.map((group) => {
-          console.log(group)
           return <ConstructionGroup key={Math.random()}{...group} />
       })}
     </div>
@@ -30,7 +27,6 @@ const GroupPage = (props) => {
 };
 
 const mapStateToProps = (state, props) => {
-  console.log(state);
   return {
     group: state.group
   };

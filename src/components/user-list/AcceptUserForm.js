@@ -14,17 +14,9 @@ class AcceptUserForm extends React.Component {
       <div>
         <AddUser
           onSubmit={this.onSubmit}
-
         />
       </div>
     );
-  }
-};
-
-const mapStateToProps = (state) => {
-  console.log(state)
-  return {
-  user: state
   }
 };
 

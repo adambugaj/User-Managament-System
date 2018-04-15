@@ -1,5 +1,6 @@
 import database from '../firebase/firebase';
 
+// Show a new user on the list
 const addUser = (userData) => {
   return {
     type: "ADD_USER",
@@ -7,7 +8,7 @@ const addUser = (userData) => {
   }
 };
 
-//ADD DATA TO FIREBASE
+//ADD NEW USER TO FIREBASE
 const saveAddUser = (userData = {}) => {
   // Function in return only works by support from middleware (redux thunk)
   // Function is run entirely by redux
@@ -77,6 +78,7 @@ const removeUserFirebase = (id) => {
   };
 }
 
+// Edit a data of a selected user
 const editUser = (userID, updates) => {
   return {
     type: 'EDIT_USER',
@@ -85,6 +87,7 @@ const editUser = (userID, updates) => {
   };
 };
 
+// Save name of a group where the user was added
 const addGroupToUser = (groupName, userData) => {
   return {
     type: 'ADD_GROUP_TO_USER',

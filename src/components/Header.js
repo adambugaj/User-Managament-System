@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Zwykły header w aplikacji
+// Header shown in every components
 export const Header = () => {
   return (
     <header className="header">

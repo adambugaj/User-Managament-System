@@ -6,8 +6,8 @@ import FlatButton from 'material-ui/FlatButton';
 import AddUser from './AddUserPage';
 import RemoveUser from './RemoveUser';
 
+// User Data edition
 const EditUser = (props) => {
-  console.log(props);
   return (
     <div>
           <AddUser
@@ -22,10 +22,8 @@ const EditUser = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-    console.log(state,props);
   return {
     user: state.user.find((user) => {
-      console.log(user);
       return user.userID === props.match.params.id;
     })
   };

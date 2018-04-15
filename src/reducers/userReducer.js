@@ -9,11 +9,8 @@ const userReducer = (state = userReducerDefault, action) => {
         action.userData
       ];
     case 'ADD_GROUP_TO_USER':
-      console.log(state, action);
       return state.map((user) => {
-        console.log(user.id === action.userData.id)
         if(user.id === action.userData.id) {
-          console.log(action.groupName)
           return {
             ...user,
             userGroup: action.groupName
@@ -27,7 +24,6 @@ const userReducer = (state = userReducerDefault, action) => {
         return user.id !== action.id;
       });
     case 'EDIT_USER':
-    console.log(action, state)
       return state.map((user) => {
         if(user.ID === action.ID) {
           return {

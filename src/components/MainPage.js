@@ -4,7 +4,7 @@ import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import FlatButton from 'material-ui/FlatButton';
 
-// Zwykły header w aplikacji
+// Dashboard of the system
 export const MainPage = () => {
   return (
     <MuiThemeProvider>

@@ -6,7 +6,7 @@ import { Card, CardText, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 import {removeGroup, addUserToGroup} from '../../actions/groupGenerator';
 
-// Pokazuje listę zapisanych transakcji
+// The component for a group list
 const ConstructionGroup = (props) => {
   console.log(props);
   return (
@@ -16,7 +16,7 @@ const ConstructionGroup = (props) => {
           <CardText>
             <div>
               <p>Group name: <strong>{props.groupName}</strong></p>
-              {// Wyświetla listę użytkowników
+              {// Shows the list of groups
                 props.group.length !== 0 && props.userList.map((user) => {
                   return (
                     <p key={Math.random()}>Username: {user.userName} First Name: {user.userFirstName} Last Name: {user.userLastName}</p>
@@ -40,7 +40,7 @@ const ConstructionGroup = (props) => {
     </div>
   )
 }
-//transaction = {props} - przenosi dane transakcji, która użytkownik chce usunac do komponentu RemoveTransaction
+
 const mapStateToProps = (state, props) => {
   console.log(state);
   return {

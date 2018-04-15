@@ -7,7 +7,7 @@ import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import TextField from 'material-ui/TextField';
 import FlatButton from 'material-ui/FlatButton';
 
-
+// Adding a new group to the list
 export class AddGroupPage extends React.Component {
   constructor(props) {
     super(props);
@@ -22,22 +22,15 @@ export class AddGroupPage extends React.Component {
       this.setState(() => ({ groupName: name }));
   };
 
-
-//   onChangeEuro = (e) => {
-//     const euro = e.target.value;
-//     this.setState(() => ({ transactionEuro: euro }));
-//   };
-
 // Send a data to an object after submitting
   onSubmit = (e) => {
       e.preventDefault();
-      console.log(this.props)
       this.props.onSubmit({
         groupName: this.state.groupName
       });
     };
 
-// Interfejs aplikacji oraz komponenty material-ui
+// Interface of the group section
   render() {
     return (
       <div className="content-conatainer">

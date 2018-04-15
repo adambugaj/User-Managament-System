@@ -10,9 +10,8 @@ import { Card, CardHeader, CardText, CardActions, CardTitle } from 'material-ui/
 import FlatButton from 'material-ui/FlatButton';
 
 
-// Pokazuje listę zapisanych transakcji
+// The componontes show the list of users with specified data
 const UserList = (props) => {
-  console.log(props);
   return (
     <div className="content-conatainer1">
       <MuiThemeProvider>
@@ -36,8 +35,7 @@ const UserList = (props) => {
                 props.dispatch(addUserToGroup(groupName, props));
                 props.dispatch(addGroupToUser(groupName, props));
               }
-            }>Add to Group
-            </p>
+            }>Add to Group</p>
           </Link>
             <Link to={`/edit/${props.userID}`}>
               <FlatButton className="box-layout__button1" backgroundColor="#F5F5F5" type="button" label="Edit" />
@@ -49,13 +47,11 @@ const UserList = (props) => {
     </div>
   )
 }
-//transaction = {props} - przenosi dane transakcji, która użytkownik chce usunac do komponentu RemoveTransaction
 
+// Bidning components with the object
 const mapStateToProps = (state, props) => {
-  console.log(state);
   return {
     group: state.group.map((group) => {
-      console.log(group.userList);
       return group.userList
     }),
     user: state.user.map((user) => {

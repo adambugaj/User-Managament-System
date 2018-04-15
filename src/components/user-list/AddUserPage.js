@@ -8,6 +8,7 @@ import TextField from 'material-ui/TextField';
 import { Card, CardHeader, CardActions } from 'material-ui/Card';
 import FlatButton from 'material-ui/FlatButton';
 
+
 export class AddUser extends React.Component {
   constructor(props) {
     super(props);
@@ -26,35 +27,33 @@ export class AddUser extends React.Component {
       this.setState(() => ({ userName: value }));
   };
 
+// Add Password to the object state
   onUserPassword = (e) => {
     const value = e.target.value;
       this.setState(() => ({ userPassword: value }));
   };
 
+// Add First name to the object state
   onUserFirstName = (e) => {
     const value = e.target.value;
       this.setState(() => ({ userFirstName: value }));
   };
 
+// Add Last name to the object state
   onUserLastName = (e) => {
     const value = e.target.value;
       this.setState(() => ({ userLastName: value }));
   };
 
+// Add Date of Birth to the object state
   onUserDateBirth = (e) => {
     const value = e.target.value;
       this.setState(() => ({ userDateBirth: value }));
   };
 
-//   onChangeEuro = (e) => {
-//     const euro = e.target.value;
-//     this.setState(() => ({ transactionEuro: euro }));
-//   };
-
-// Po zatwierdzeniu przyciskiem submit wysyłamy dane do obiektu
+// After submitting, the data are sent to the object
   onSubmit = (e) => {
       e.preventDefault();
-      console.log(this.props)
       this.props.onSubmit({
         userName: this.state.userName,
         userPassword: this.state.userPassword,
@@ -64,7 +63,7 @@ export class AddUser extends React.Component {
       });
     };
 
-// Interfejs aplikacji oraz komponenty material-ui
+// Interface of the app is created by Material components
   render() {
     return (
       <div className="content-conatainer">
@@ -112,9 +111,6 @@ export class AddUser extends React.Component {
             />
             <CardActions>
               <FlatButton onSubmit={this.onSubmit} type="submit" label="Submit" />
-              <Link to="user-list">
-                <FlatButton type="button" label="Cancel" secondary={true} />
-              </Link>
             </CardActions>
           </Card>
         </MuiThemeProvider>

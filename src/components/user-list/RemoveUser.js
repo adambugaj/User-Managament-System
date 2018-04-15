@@ -20,11 +20,9 @@ const RemoveUser = (props) => {
 }
 
 const mapStateToProps = (state, props) => {
-  // Zwróc odpowiednie ID transakcji, która chcemy usunąc
-  console.log(state, props);
+  // Return correct user data
   return {
     user: state.user.find((user) => {
-      console.log(user, props);
       return user.id === props.user.id;
     })
   };

@@ -10,7 +10,6 @@ import FlatButton from 'material-ui/FlatButton';
 
 
 const UserPage = (props) => {
-  console.log(props);
   return (
     <MuiThemeProvider>
       <div className="content-conatainer">
@@ -22,7 +21,7 @@ const UserPage = (props) => {
             <FlatButton className="box-layout__button1" label="Dashboard" />
           </Link>
         </Card>
-        {// Wyświetla listę transakcji
+        {// Show the list of users
           props.user.length !== 0 && props.user.map((user) => {
             return <UserList key={Math.random()}{...user} />
         })}
@@ -32,7 +31,6 @@ const UserPage = (props) => {
 };
 
 const mapStateToProps = (state, props) => {
-  console.log(state);
   return {
     user: state.user
   };
